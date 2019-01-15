@@ -1,0 +1,27 @@
+<div id="message">
+</div>
+
+<input type="number" id = "number">
+</input>
+<button id ="guessButton">
+  Guess
+</button>
+
+document.getElementById('guessButton').addEventListener('click', function() {
+  let userGuess = document.getElementById('number').value;
+  function randomNumber(min,max){
+    return Math.floor(Math.random()* (max - min +1) + min);
+  }
+  let random = randomNumber(0,1);
+  if (userGuess == random){
+    document.getElementById('message').innerHTML = "You are correct!!!";
+  }  
+    else{
+      if (userGuess > random){
+        document.getElementById('message').innerHTML = "Sorry! Your guess too high";
+      }
+      else{
+        document.getElementById('message').innerHTML = "Sorry! Your guess too low";
+      }
+    }    
+});
